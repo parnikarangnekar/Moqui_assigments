@@ -1,0 +1,7 @@
+<entity entity-name="Hello" package-name="com.example" is-view="false" sequence-bank-size="10">
+    <field name="exampleId" type="id" is-primary="true"/>
+    <field name="exampleName" type="text-short"/>
+    <field name="exampleDate" type="date"/>
+    <field name="examplePrice" type="currency-precise"/>
+    <field name="exampleQuantity" type="numeric"/>
+</entity>
