@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<entity-facade-xml type="demo">
-    <tutorial.Tutorial tutorialId="TestOne" description="Test one description."/>
-    <tutorial.Tutorial tutorialId="TestTwo" description="Test two description."/>
+<entity-facade-xml >
+    <!-- Example data for Tutorial entity -->
+    <tutorial.Tutorial tutorialId="TUT001" name="Parnika" description="Abc" date="2024-01-01" price="99.99" quantity="20"/>
+    <tutorial.Tutorial tutorialId="TUT002" name="Sachin" description="Bcd" date="2024-02-15" price="199.99" quantity="10"/>
+    <tutorial.Tutorial tutorialId="TUT003" name="Sonali" description="Def" date="2024-03-10" price="149.99" quantity="15"/>
 </entity-facade-xml>
