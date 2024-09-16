@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-2.1.xsd">
+
+    <!-- Create a new Tutorial -->
+    <service verb="create" noun="Tutorial" displayName="Create a new Tutorial" type="entity-auto" allow-remote="true">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"/>
+            <parameter name="name"><text-long/></parameter>
+            <parameter name="description"><text-medium/></parameter>
+            <parameter name="date"><date/></parameter>
+            <parameter name="price"><currency-precise/></parameter>
+            <parameter name="quantity"><number-integer/></parameter>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="tutorialId" type="id" required="true"/>
+        </out-parameters>
+    </service>
+
+    <!-- Update an existing Tutorial -->
+    <service verb="update" noun="Tutorial" displayName="Update a Tutorial" type="entity-auto" allow-remote="true">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"/>
+            <auto-parameters include="nonpk"/>
+        </in-parameters>
+<!--        <actions>-->
+<!--            <entity-value entity-name="moqui.tutorial.Tutorial" value="context" use-cache="false" create="false"/>-->
+<!--        </actions>-->
+    </service>
+
+    <!-- Delete a Tutorial by ID -->
+    <service verb="delete" noun="Tutorial" displayName="Delete a Tutorial" type="entity-auto" allow-remote="true">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </in-parameters>
+    </service>
+    <service verb="get" noun="FemalePersons" type="inline"
+             location="component://your-component-name/service/org/example/PersonServices.xml"
+             auth="true">
+        <in-parameters>
+            <!-- No input parameters for this service -->
+        </in-parameters>
+        <out-parameters>
+            <parameter name="personsList" type="List"/>
+        </out-parameters>
+
+        <actions>
+            <entity-find entity-name="Person" list="personsList">
+                <econdition field-name="gender" value="F"/>
+            </entity-find>
+        </actions>
+    </service>
+
+
+</services>

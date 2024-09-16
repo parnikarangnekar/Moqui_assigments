@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd"
+          name="Tutorial" displayName="Tutorial Management API" version="2.0.0">
+
+    <!-- Resource Definition for Tutorial -->
+    <resource name="Tutorial" require-authentication="anonymous-all">
+        <!-- Create a new Tutorial -->
+        <method type="post">
+            <service name="moqui.tutorial.TutorialService.create#Tutorial"/>
+        </method>
+        <!-- Retrieve a Tutorial by ID -->
+        <id name="tutorialId">
+            <method type="get" path="/{tutorialId}">
+                <entity name="Tutorial" operation="one" id="{tutorialId}"/>
+            </method>
+        </id>
+        <!-- Update a Tutorial by ID -->
+        <method type="put" path="/{id}">
+            <service name="moqui.tutorial.TutorialService.update#Tutorial"/>
+        </method>
+        <!-- Delete a Tutorial by ID -->
+        <method type="delete" path="/{id}">
+            <service name="moqui.tutorial.TutorialService.delete#Tutorial"/>
+        </method>
+    </resource>
+
+</resource>
+

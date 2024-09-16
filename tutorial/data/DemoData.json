@@ -1,5 +1,5 @@
 {
-  "Tutorial": [
+  "tutorial": [
     {
       "tutorialId": "TUT004",
       "description": "A tutorial on Moqui Framework",

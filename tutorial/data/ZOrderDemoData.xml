@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-facade-xml type="demo">
+
+    <!-- Vendor Organization Party -->
+    <mantle.party.Party partyId="ORG_ZIZI_RETAIL" pseudoId="ZIRET" partyTypeEnumId="PtyOrganization" ownerPartyId="ORG_ZIZI_RETAIL">
+        <organization organizationName="Ziziwork Retail &amp; Wholesale"/>
+        <roles roleTypeId="OrgInternal"/>
+    </mantle.party.Party>
+
+    <!-- Ziziwork Retail Warehouse Facility -->
+    <mantle.facility.Facility facilityId="ZIRET_WH" facilityTypeEnumId="FcTpWarehouse" assetAllowIssueOverQoh="Y"
+                              ownerPartyId="ORG_ZIZI_RETAIL" facilityName="Ziziwork Retail Warehouse"/>
+
+    <!-- Product Store -->
+    <mantle.product.store.ProductStore productStoreId="OMS_DEFAULT_STORE" storeName="Ziziwork Retail Store"
+                                       organizationPartyId="ORG_ZIZI_RETAIL" defaultLocale="en_US" defaultCurrencyUomId="USD"/>
+
+    <!-- Demo Customer 1 -->
+    <mantle.party.Party partyId="CustJqp" partyTypeEnumId="PtyPerson" ownerPartyId="ORG_ZIZI_RETAIL">
+        <person firstName="Joe" middleName="Q" lastName="Public" gender="F" maritalStatusEnumId="MarsSingle"/>
+        <roles roleTypeId="Customer"/>
+    </mantle.party.Party>
+
+    <!-- Demo Customer 2 -->
+    <mantle.party.Party partyId="CustDemo2" partyTypeEnumId="PtyPerson" ownerPartyId="ORG_ZIZI_RETAIL">
+        <person firstName="Jack" middleName="Q" lastName="Smith" gender="M" maritalStatusEnumId="MarsMarried"/>
+        <roles roleTypeId="Customer"/>
+    </mantle.party.Party>
+
+    <!-- Demo Products -->
+    <mantle.product.Product productId="DEMO_UNIT" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+                            chargeShipping="Y" returnable="Y" productName="Demo Product One Unit" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
+
+    <mantle.product.Product productId="DEMO_1_1" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+                            chargeShipping="Y" returnable="Y" productName="Demo Product One One" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
+
+    <mantle.product.Product productId="DEMO_1_2" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+                            chargeShipping="Y" returnable="Y" productName="Demo Product One Two" description="" ownerPartyId="ORG_ZIZI_RETAIL"/>
+
+    <!-- Orders -->
+    <mantle.order.OrderHeader orderId="100052" salesChannelEnumId="ScWeb" productStoreId="OMS_DEFAULT_STORE"
+                              placedDate="2020-04-17T05:00:00+0000" orderName="Test Order 1" grandTotal="18.32"
+                              currencyUomId="USD" statusId="OrderApproved"/>
+
+    <mantle.order.OrderHeader orderId="100102" salesChannelEnumId="ScWeb" productStoreId="OMS_DEFAULT_STORE"
+                              placedDate="2020-04-18T05:00:00+0000" orderName="Test Order 2" grandTotal="177.89"
+                              currencyUomId="USD" statusId="OrderApproved"/>
+
+    <mantle.order.OrderHeader orderId="100255" salesChannelEnumId="ScWeb" productStoreId="OMS_DEFAULT_STORE"
+                              placedDate="2020-04-19T05:00:00+0000" orderName="Test Order 3" grandTotal="54.96"
+                              currencyUomId="USD" statusId="OrderApproved"/>
+
+    <!-- Order Parts -->
+    <mantle.order.OrderParts orderId="100052" partTotal="18.32" customerPartyId="CustJqp" facilityId="ZIRET_WH"
+                             disableTaxCalc="Y" vendorPartyId="ORG_ZIZI_RETAIL" statusId="OrderApproved"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderParts orderId="100102" disableShippingCalc="Y" partTotal="159.09" customerPartyId="CustJqp"
+                             facilityId="ZIRET_WH" disableTaxCalc="Y" vendorPartyId="ORG_ZIZI_RETAIL" statusId="OrderApproved"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderParts orderId="100102" shipmentMethodEnumId="ShMthNextDay" disableShippingCalc="Y"
+                             partTotal="17.99" customerPartyId="CustJqp" facilityId="ZIRET_WH" disableTaxCalc="Y"
+                             vendorPartyId="ORG_ZIZI_RETAIL" carrierPartyId="UPS" statusId="OrderApproved"
+                             orderPartSeqId="02"/>
+
+    <mantle.order.OrderParts orderId="100255" shipmentMethodEnumId="ShMthNextDay" disableShippingCalc="Y"
+                             partTotal="54.96" customerPartyId="CustJqp" facilityId="ZIRET_WH" disableTaxCalc="Y"
+                             vendorPartyId="ORG_ZIZI_RETAIL" carrierPartyId="UPS" statusId="OrderApproved"
+                             orderPartSeqId="01"/>
+
+    <!-- Order Items -->
+    <mantle.order.OrderItems orderId="100052" itemTypeEnumId="ItemProduct" itemDescription="Demo Product One Unit"
+                             orderItemSeqId="01" quantity="1" productId="DEMO_UNIT" unitAmount="16.99"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100052" itemTypeEnumId="ItemSalesTax" parentItemSeqId="01"
+                             itemDescription="Sales Tax" orderItemSeqId="02" quantity="1" sourcePercentage="7"
+                             unitAmount="1.33" orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100102" itemTypeEnumId="ItemProduct" itemDescription="Demo Product One Unit"
+                             orderItemSeqId="01" quantity="3" productId="DEMO_UNIT" unitAmount="16.99"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100102" itemTypeEnumId="ItemSalesTax" parentItemSeqId="01"
+                             itemDescription="Sales Tax" orderItemSeqId="02" quantity="3" sourcePercentage="7"
+                             unitAmount="16.99" orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100102" itemTypeEnumId="ItemProduct" itemDescription="Demo Product One-One"
+                             orderItemSeqId="03" quantity="3" productId="DEMO_1_1" unitAmount="16.99"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100102" itemTypeEnumId="ItemSalesTax" parentItemSeqId="03"
+                             itemDescription="Sales Tax" orderItemSeqId="04" quantity="3" sourcePercentage="8"
+                             unitAmount="2.33" orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100102" itemTypeEnumId="ItemProduct" itemDescription="Demo Product One-Two"
+                             orderItemSeqId="05" quantity="1" productId="DEMO_1_2" unitAmount="17.99"
+                             orderPartSeqId="02"/>
+
+    <mantle.order.OrderItems orderId="100255" itemTypeEnumId="ItemProduct" itemDescription="Demo Product One Unit"
+                             orderItemSeqId="01" quantity="3" productId="DEMO_UNIT" unitAmount="16.99"
+                             orderPartSeqId="01"/>
+
+    <mantle.order.OrderItems orderId="100255" itemTypeEnumId="ItemSalesTax" parentItemSeqId="01"
+                             itemDescription="Sales Tax" orderItemSeqId="02" quantity="3" sourcePercentage="7"
+                             unitAmount="1.33" orderPartSeqId="01"/>
+
+</entity-facade-xml>
